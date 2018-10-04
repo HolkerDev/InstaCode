@@ -116,10 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
         mPassword = (EditText) findViewById(R.id.password);
 
 
-        if (ParseUser.getCurrentSessionToken() != null) {
-            GoToUserList();
-        }
-
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 

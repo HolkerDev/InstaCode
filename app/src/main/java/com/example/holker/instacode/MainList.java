@@ -83,6 +83,11 @@ public class MainList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
 
+        if (ParseUser.getCurrentSessionToken() == null) {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
+
         ParseQuery<ParseUser> query = ParseUser.getQuery();
 
         final ArrayList<String> usernames = new ArrayList<String>();
