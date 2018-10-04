@@ -85,12 +85,12 @@ public class MainList extends AppCompatActivity {
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
 
-        final ArrayList<String> usernames = new ArrayList<>();
+        final ArrayList<String> usernames = new ArrayList<String>();
 
 
         mListView = (ListView) findViewById(R.id.lv_users);
 
-        final ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(),
+        final ArrayAdapter arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, usernames);
 
 

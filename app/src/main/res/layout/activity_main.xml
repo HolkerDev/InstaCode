@@ -16,14 +16,15 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="InstaCodeLogo"
         android:onClick="hideKey"
-        app:srcCompat="@drawable/instagram_icon" />
+        app:srcCompat="@drawable/insta_code_logo" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@+id/username"
+        android:layout_alignEnd="@+id/username"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -40,13 +41,19 @@
 
     <Button
         android:id="@+id/btn_center"
-        android:layout_width="wrap_content"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_alignEnd="@+id/password"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_btn"
-        android:layout_centerHorizontal="true"
         android:onClick="centerClicked"
-        android:text="Log In" />
+        android:text="Log In"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_switch"
@@ -54,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btn_center"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="66dp"
+        android:layout_marginEnd="10dp"
         android:onClick="changeLog"
         android:text="Or, Sign Up"
         android:textColor="#2010ff"
