@@ -1,14 +1,18 @@
 package com.example.holker.instacode;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +22,12 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity implements View.OnKeyListener {
 
+    AnimationDrawable mAnimationDrawable;
+    RelativeLayout mRelativeLayout;
     TextView mTextViewSwitch;
     boolean mLoginMode = true;
     Button mButtonCenter;
@@ -39,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
     }
 
     public void centerClicked(View view) {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.bounce);
+        mButtonCenter.startAnimation(animation);
+
         if (!mUsername.getText().toString().equals("") || !mPassword.getText().toString().equals("")) {
             if (mLoginMode) {
                 LogIn();
@@ -89,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
 
     public void hideKey(View view) {
         InputMethodManager inputMethod = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        inputMethod.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        inputMethod.hideSoftInputFromWindow(Objects.requireNonNull(getCurrentFocus()).getWindowToken(), 0);
     }
 
 
@@ -110,11 +123,16 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
         setContentView(R.layout.activity_main);
 
         //find
+        mRelativeLayout = (RelativeLayout) findViewById(R.id.rl_main);
+        mAnimationDrawable = (AnimationDrawable) mRelativeLayout.getBackground();
         mTextViewSwitch = (TextView) findViewById(R.id.tv_switch);
         mButtonCenter = (Button) findViewById(R.id.btn_center);
         mUsername = (EditText) findViewById(R.id.username);
         mPassword = (EditText) findViewById(R.id.password);
 
+        mAnimationDrawable.setEnterFadeDuration(4500);
+        mAnimationDrawable.setExitFadeDuration(4500);
+        mAnimationDrawable.start();
 
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
