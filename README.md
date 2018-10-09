@@ -1,6 +1,9 @@
 # InstaCode
 Simple clone of Instagram.
 
+## Screenshots
+
+
 ## Built With
 * [ParseAPI] (https://parseplatform.org/)
 * [Amazon Web Services (AWS)] (https://aws.amazon.com/?nc1=f_ls)
