@@ -83,6 +83,7 @@ public class MainList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
 
+
         if (ParseUser.getCurrentSessionToken() == null) {
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);

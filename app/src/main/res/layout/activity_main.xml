@@ -36,25 +36,30 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_center"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btn_center"
-        android:layout_width="210dp"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_alignStart="@+id/password"
         android:layout_alignEnd="@+id/password"
-        android:layout_marginTop="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_btn"
+        android:fontFamily="sans-serif"
         android:onClick="centerClicked"
         android:text="Log In"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textColor="#000"
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/tv_switch"
