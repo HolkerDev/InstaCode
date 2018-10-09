@@ -1,9 +1,12 @@
 package com.example.holker.instacode;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,9 +22,12 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnKeyListener {
@@ -33,6 +39,25 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
     Button mButtonCenter;
     EditText mUsername;
     EditText mPassword;
+    ParseFile file;
+
+    public void pushUser() {
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.white);
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] bytes = stream.toByteArray();
+
+        file = new ParseFile("image.png", bytes);
+
+        file.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                SignUp();
+            }
+        });
+    }
 
     public void changeLog(View view) {
         if (mLoginMode) {
@@ -56,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
             if (mLoginMode) {
                 LogIn();
             } else {
-                SignUp();
+                pushUser();
             }
         } else {
             Toast.makeText(getApplicationContext(), "username/password is empty",
@@ -87,6 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
         ParseUser user = new ParseUser();
         user.setUsername(mUsername.getText().toString());
         user.setPassword(mPassword.getText().toString());
+        user.put("followers", 0);
+
+        user.put("background", file);
 
         user.signUpInBackground(new SignUpCallback() {
             @Override

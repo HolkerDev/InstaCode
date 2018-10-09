@@ -145,6 +145,7 @@ public class MainList extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
 
+
                 ParseFile file = new ParseFile("image.png", byteArray);
 
                 ParseObject parseObject = new ParseObject("Image");
