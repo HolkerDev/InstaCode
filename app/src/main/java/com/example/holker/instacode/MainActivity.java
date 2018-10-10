@@ -158,8 +158,8 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
         mUsername = (EditText) findViewById(R.id.username);
         mPassword = (EditText) findViewById(R.id.password);
 
-        mAnimationDrawable.setEnterFadeDuration(4500);
-        mAnimationDrawable.setExitFadeDuration(4500);
+        mAnimationDrawable.setEnterFadeDuration(3500);
+        mAnimationDrawable.setExitFadeDuration(3500);
         mAnimationDrawable.start();
 
 

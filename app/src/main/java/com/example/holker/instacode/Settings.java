@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -30,11 +31,20 @@ import java.util.Objects;
 public class Settings extends AppCompatActivity {
     Button mButtonLogOut;
     Button mButtonUpdateBackground;
+    AnimationDrawable mAnimationDrawable;
     ParseFile file;
+    RelativeLayout mRelativeLayoutSettings;
 
     public void updateBackground() {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, 2);
+    }
+
+    public void animateLayout() {
+        mAnimationDrawable = (AnimationDrawable) mRelativeLayoutSettings.getBackground();
+        mAnimationDrawable.setEnterFadeDuration(3500);
+        mAnimationDrawable.setExitFadeDuration(3500);
+        mAnimationDrawable.start();
     }
 
     @Override
@@ -45,6 +55,10 @@ public class Settings extends AppCompatActivity {
         //find
         mButtonLogOut = (Button) findViewById(R.id.btn_logOut);
         mButtonUpdateBackground = (Button) findViewById(R.id.btn_update);
+        mRelativeLayoutSettings = (RelativeLayout) findViewById(R.id.rv_settings);
+
+        //Animation
+        animateLayout();
 
         //Update background image
         mButtonUpdateBackground.setOnClickListener(new View.OnClickListener() {
