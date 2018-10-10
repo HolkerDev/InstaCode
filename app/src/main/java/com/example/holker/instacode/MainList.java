@@ -15,12 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -53,9 +51,8 @@ public class MainList extends AppCompatActivity {
             } else {
                 getPhoto();
             }
-        } else if (item.getItemId() == R.id.logOut) {
-            ParseUser.logOut();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        } else if (item.getItemId() == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
             startActivity(intent);
         }
 
