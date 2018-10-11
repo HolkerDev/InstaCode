@@ -3,10 +3,9 @@ package com.example.holker.instacode;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -52,8 +51,8 @@ public class Feed extends AppCompatActivity {
                             file.getDataInBackground(new GetDataCallback() {
                                 @Override
                                 public void done(byte[] data, ParseException e) {
-                                    if(e == null && data != null){
-                                        Bitmap bitmap = BitmapFactory.decodeByteArray(data,0,data.length);
+                                    if (e == null && data != null) {
+                                        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
 
                                         ImageView imageView = new ImageView(getApplicationContext());
 
@@ -71,8 +70,6 @@ public class Feed extends AppCompatActivity {
                 }
             }
         });
-
-
 
 
     }
