@@ -10,6 +10,7 @@ Simple clone of Instagram.
 ![alt text](https://github.com/HolkerDev/InstaCode/blob/master/Feed.png)
 
 ## Built With
+* [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 * [ParseAPI](https://parseplatform.org/)
 * [Amazon Web Services (AWS)](https://aws.amazon.com/?nc1=f_ls)
 
