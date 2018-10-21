@@ -81,8 +81,8 @@ public class MainList extends AppCompatActivity {
         setContentView(R.layout.activity_main_list);
 
 
-        if (ParseUser.getCurrentSessionToken() == null) {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        if (ParseUser.getCurrentSessionToken() == null|| ParseUser.getCurrentUser().getUsername() == null) {
+            Intent i = new Intent(getApplicationContext(), MainActivityKt.class);
             startActivity(i);
         }
 
@@ -97,9 +97,9 @@ public class MainList extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, usernames);
 
 
-        query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
+        //query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
 
-        query.addAscendingOrder("username");
+        //query.addAscendingOrder("username");
 
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
