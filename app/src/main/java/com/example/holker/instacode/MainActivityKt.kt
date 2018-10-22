@@ -19,10 +19,6 @@ class MainActivityKt : AppCompatActivity() {
 
     private var mLoginMode: Boolean = true
 
-    fun logIn() {
-        ParseUser.logInInBackground(username.text.toString(), password.text.toString(),
-        })
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

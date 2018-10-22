@@ -82,7 +82,7 @@ public class MainList extends AppCompatActivity {
 
 
         if (ParseUser.getCurrentSessionToken() == null|| ParseUser.getCurrentUser().getUsername() == null) {
-            Intent i = new Intent(getApplicationContext(), MainActivityKt.class);
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }
 

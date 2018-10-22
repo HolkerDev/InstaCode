@@ -85,7 +85,7 @@ public class Settings extends AppCompatActivity {
                         R.anim.bounce);
                 mButtonLogOut.startAnimation(btnAnimation);
                 ParseUser.logOut();
-                Intent toLogScreen = new Intent(getApplicationContext(), MainActivityKt.class);
+                Intent toLogScreen = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(toLogScreen);
             }
         });
