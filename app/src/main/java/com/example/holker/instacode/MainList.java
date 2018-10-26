@@ -97,9 +97,9 @@ public class MainList extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, usernames);
 
 
-        //query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
+        query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
 
-        //query.addAscendingOrder("username");
+        query.addAscendingOrder("username");
 
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
