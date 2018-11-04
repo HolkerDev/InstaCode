@@ -20,6 +20,7 @@ import com.parse.LogInCallback
 import com.parse.ParseException
 import com.parse.ParseFile
 import com.parse.ParseUser
+import com.parse.SaveCallback
 import kotlinx.android.synthetic.main.activity_main_kt.*
 import java.io.ByteArrayOutputStream
 
@@ -32,16 +33,17 @@ class MainActivityKt : AppCompatActivity() {
     private fun pushUser() {
 
         val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.white)
-        val stream: ByteArrayOutputStream = ByteArrayOutputStream()
+        val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
         val bytes = stream.toByteArray()
         file = ParseFile("default_image.png", bytes)
-        try {
-            file.save()
-            signUp()
-        } catch (e: Exception) {
-            toast(e.message.toString())
-        }
+        file.saveInBackground(SaveCallback {
+            if (it == null) {
+                signUp()
+            } else {
+                toast(it.message.toString())
+            }
+        })
 
     }
 
@@ -52,7 +54,7 @@ class MainActivityKt : AppCompatActivity() {
         ParseUser.logInInBackground(username.text.toString(), password.text.toString()) { user: ParseUser?, e: ParseException? ->
             if (e == null) {
                 toast("Fine")
-                val i = Intent(this,MainList::class.java)
+                val i = Intent(this, MainList::class.java)
                 startActivity(i)
             } else {
                 toast(e.message.toString())
