@@ -13,13 +13,18 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.example.holker.instacode.R.id.password
+import com.example.holker.instacode.R.id.username
+import com.example.holker.instacode.R.string.signUp
+import com.parse.LogInCallback
+import com.parse.ParseException
 import com.parse.ParseFile
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_main_kt.*
 import java.io.ByteArrayOutputStream
 
 class MainActivityKt : AppCompatActivity() {
-    lateinit var file:ParseFile
+    lateinit var file: ParseFile
 
     private var mLoginMode: Boolean = true
 
@@ -44,12 +49,14 @@ class MainActivityKt : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     fun logIn() {
-        try {
-            ParseUser.logIn(username.text.toString(), password.text.toString())
-            val i = Intent(this, MainList::class.java)
-            startActivity(i)
-        } catch (e: Exception) {
-            toast(e.message.toString())
+        ParseUser.logInInBackground(username.text.toString(), password.text.toString()) { user: ParseUser?, e: ParseException? ->
+            if (e == null) {
+                toast("Fine")
+                val i = Intent(this,MainList::class.java)
+                startActivity(i)
+            } else {
+                toast(e.message.toString())
+            }
         }
     }
 
@@ -91,7 +98,7 @@ class MainActivityKt : AppCompatActivity() {
             }
         }
 
-        //LogIn
+        //on click on the center button
         btn_center.setOnClickListener {
             val animationS: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bounce)
             btn_center.startAnimation(animationS)
