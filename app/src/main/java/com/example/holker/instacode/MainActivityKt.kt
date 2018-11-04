@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
@@ -16,11 +18,7 @@ import android.widget.Toast
 import com.example.holker.instacode.R.id.password
 import com.example.holker.instacode.R.id.username
 import com.example.holker.instacode.R.string.signUp
-import com.parse.LogInCallback
-import com.parse.ParseException
-import com.parse.ParseFile
-import com.parse.ParseUser
-import com.parse.SaveCallback
+import com.parse.*
 import kotlinx.android.synthetic.main.activity_main_kt.*
 import java.io.ByteArrayOutputStream
 
@@ -47,7 +45,7 @@ class MainActivityKt : AppCompatActivity() {
 
     }
 
-    fun Context.toast(message: CharSequence) =
+    private fun Context.toast(message: CharSequence) =
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     fun logIn() {
@@ -87,6 +85,25 @@ class MainActivityKt : AppCompatActivity() {
         animation.setExitFadeDuration(3500)
         animation.start()
 
+        password.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent? ->
+            run {
+                if (event != null) {
+                    if (event.action == KeyEvent.ACTION_DOWN) {
+                        when (keyCode) {
+                            KeyEvent.KEYCODE_ENTER -> {
+                                if (mLoginMode) {
+                                    logIn()
+                                } else {
+                                    pushUser()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return@setOnKeyListener true
+        }
+
         //change type of logging
         tv_switch.setOnClickListener {
             if (mLoginMode) {
@@ -117,5 +134,7 @@ class MainActivityKt : AppCompatActivity() {
             val inputMethod = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethod.hideSoftInputFromWindow(this.currentFocus.windowToken, 0)
         }
+
+        ParseAnalytics.trackAppOpenedInBackground(intent)
     }
 }
