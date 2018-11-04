@@ -11,13 +11,13 @@ public class StartAppKotlin : Application() {
         Parse.enableLocalDatastore(this)
 
         Parse.initialize(Parse.Configuration.Builder(this)
-                .applicationId("e4d056208a3089076fd88a0d21c9fe23b2dfd4d7")
-                .clientKey("85d4d1347b01eb18504e649b905a50f6009abf73")
-                .server("http://18.223.168.114:80/parse/")
+                .applicationId("f5f11f8268c9a944e7927a67983ebaeac2433dd0")
+                .clientKey("131fe7f87d4fff6c04bab6603c66346a191ac9cb")
+                .server("http://3.16.56.252:80/parse")
                 .build()
         )
 
-        var parseACL: ParseACL = ParseACL()
+        val parseACL: ParseACL = ParseACL()
         parseACL.publicReadAccess = true
         parseACL.publicWriteAccess = true
         ParseACL.setDefaultACL(parseACL, true)
