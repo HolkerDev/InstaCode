@@ -15,13 +15,16 @@
 
 
     </FrameLayout>
+
     <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation_bottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/navigation_bottom"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation"/>
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorPrimaryDark"
+        app:menu="@menu/navigation" />
 
 
 </LinearLayout>

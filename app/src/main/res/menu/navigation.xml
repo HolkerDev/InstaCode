@@ -3,15 +3,18 @@
 
     <item
         android:id="@+id/navigation_feed"
+        android:icon="@drawable/ic_home"
         android:title="Feed" />
 
     <item
         android:id="@+id/navigation_contacs"
+        android:icon="@drawable/ic_friends"
         android:title="Contacts" />
 
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:title="Nothing" />
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        android:title="More" />
 
 </menu>

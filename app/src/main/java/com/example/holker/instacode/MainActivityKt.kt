@@ -52,7 +52,7 @@ class MainActivityKt : AppCompatActivity() {
         ParseUser.logInInBackground(username.text.toString(), password.text.toString()) { user: ParseUser?, e: ParseException? ->
             if (e == null) {
                 toast("Fine")
-                val i = Intent(this, MainList::class.java)
+                val i = Intent(this, HomeActivity::class.java)
                 startActivity(i)
             } else {
                 toast(e.message.toString())
