@@ -1,11 +1,16 @@
 package com.example.holker.instacode
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import com.parse.ParseQuery
+import com.parse.ParseUser
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.contacts_fragment.*
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
@@ -35,6 +40,13 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        if (ParseUser.getCurrentSessionToken() == null) {
+            val intent = Intent(this, MainActivityKt::class.java)
+            startActivity(intent)
+        }
+
+
 
         navigation_bottom.setOnNavigationItemSelectedListener(this)
         loadFragment(HomeFragment())
