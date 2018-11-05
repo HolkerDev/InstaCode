@@ -29,6 +29,7 @@
         <activity android:name=".MainList" />
         <activity android:name=".Feed" />
         <activity android:name=".Settings" />
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>
