@@ -21,9 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
+        android:background="#ffffff"
+        app:elevation="0dp"
+        app:itemIconSize="25dp"
         app:itemIconTint="@color/colorAccent"
-        app:itemTextColor="@color/colorPrimaryDark"
+        app:itemTextColor="#000000"
         app:menu="@menu/navigation" />
 
 

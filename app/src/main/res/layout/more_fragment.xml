@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:id="@+id/rl_fragment_more"
+    android:background="@drawable/background_anim"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_fragment_logout"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="MORE"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn_rounded_red"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btn_fragment_update"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/rounded_btn"
+        android:text="Update Background Image"
+        android:textAllCaps="false" />
+
 </RelativeLayout>

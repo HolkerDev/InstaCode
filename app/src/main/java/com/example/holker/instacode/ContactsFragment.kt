@@ -19,10 +19,10 @@ class ContactsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var users = arrayListOf<String>()
-        var arrayAdapterUser = ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, users)
+        val users = arrayListOf<String>()
+        val arrayAdapterUser = ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, users)
 
-        var query: ParseQuery<ParseUser> = ParseUser.getQuery()
+        val query: ParseQuery<ParseUser> = ParseUser.getQuery()
         query.whereNotEqualTo("username", ParseUser.getCurrentUser().username)
         query.addAscendingOrder("username")
 

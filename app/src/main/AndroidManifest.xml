@@ -18,7 +18,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".MainActivityKt"
+            android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
         <activity android:name=".MainList" />
         <activity android:name=".Feed" />
         <activity android:name=".Settings" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivityKt" />
     </application>
 
 </manifest>
