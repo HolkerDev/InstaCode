@@ -26,18 +26,32 @@ class MoreFragment : Fragment() {
 
     lateinit var file: ParseFile
 
+    //just toast and nothing more XD
     fun toast(string: String?) {
         Toast.makeText(activity!!.applicationContext, string, Toast.LENGTH_LONG).show()
     }
 
 
+    //start gallery on device
     fun updateBackground() {
         val i = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(i, 2)
     }
 
+
+    fun animateLayout() {
+        val animation: AnimationDrawable = rl_fragment_more.background as AnimationDrawable
+        animation.setEnterFadeDuration(3500)
+        animation.setExitFadeDuration(3500)
+        animation.start()
+    }
+
+    //lifecycle start
     override fun onStart() {
         super.onStart()
+
+        animateLayout()
+
         btn_fragment_update.setOnClickListener {
             val animationButton = AnimationUtils.loadAnimation(context, R.anim.bounce)
             btn_fragment_update.animation = animationButton
@@ -48,22 +62,24 @@ class MoreFragment : Fragment() {
                 updateBackground()
             }
         }
+
+        btn_fragment_logout.setOnClickListener {
+            ParseUser.logOut()
+            val intent = Intent(context!!.applicationContext, MainActivityKt::class.java)
+            startActivity(intent)
+        }
     }
 
 
+    // get intent and save image on server
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             val img: Uri = data.data as Uri
-
             val bitmap = MediaStore.Images.Media.getBitmap(context!!.contentResolver, img)
-
             val stream = ByteArrayOutputStream()
-
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-
             val bytes = stream.toByteArray()
-
             file = ParseFile("somenewimage.png", bytes)
 
             file.saveInBackground(SaveCallback {
@@ -79,6 +95,7 @@ class MoreFragment : Fragment() {
         }
     }
 
+    //Create fragment (part of lifecycle)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.more_fragment, null)
