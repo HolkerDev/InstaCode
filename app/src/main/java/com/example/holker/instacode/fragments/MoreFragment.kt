@@ -1,4 +1,4 @@
-package com.example.holker.instacode
+package com.example.holker.instacode.fragments
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
@@ -16,6 +16,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import com.example.holker.instacode.R
+import com.example.holker.instacode.activities.MainActivityKt
 import com.parse.ParseFile
 import com.parse.ParseUser
 import com.parse.SaveCallback

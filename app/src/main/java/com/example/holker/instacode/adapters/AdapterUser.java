@@ -1,4 +1,4 @@
-package com.example.holker.instacode;
+package com.example.holker.instacode.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.holker.instacode.R;
 
 import java.util.List;
 

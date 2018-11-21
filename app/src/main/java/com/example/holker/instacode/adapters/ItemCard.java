@@ -1,4 +1,4 @@
-package com.example.holker.instacode;
+package com.example.holker.instacode.adapters;
 
 import android.graphics.Bitmap;
 

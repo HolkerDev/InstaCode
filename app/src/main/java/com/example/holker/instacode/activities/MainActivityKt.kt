@@ -1,6 +1,6 @@
 @file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
-package com.example.holker.instacode
+package com.example.holker.instacode.activities
 
 import android.content.Context
 import android.content.Intent
@@ -15,9 +15,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.example.holker.instacode.R.id.password
-import com.example.holker.instacode.R.id.username
-import com.example.holker.instacode.R.string.signUp
+import com.example.holker.instacode.R
 import com.parse.*
 import kotlinx.android.synthetic.main.activity_main_kt.*
 import java.io.ByteArrayOutputStream

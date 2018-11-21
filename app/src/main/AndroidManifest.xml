@@ -18,7 +18,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainList" />
-        <activity android:name=".Feed" />
-        <activity android:name=".Settings" />
-        <activity android:name=".MainActivityKt" />
+        <activity android:name=".activities.MainList" />
+        <activity android:name=".activities.Feed" />
+        <activity android:name=".activities.Settings" />
+        <activity android:name=".activities.MainActivityKt" />
     </application>
 
 </manifest>

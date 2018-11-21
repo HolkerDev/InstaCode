@@ -1,4 +1,4 @@
-package com.example.holker.instacode
+package com.example.holker.instacode.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.holker.instacode.R
+import com.example.holker.instacode.activities.Feed
 import com.parse.ParseQuery
 import com.parse.ParseUser
 import kotlinx.android.synthetic.main.contacts_fragment.*

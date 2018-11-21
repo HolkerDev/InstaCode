@@ -4,7 +4,7 @@ import android.app.Application
 import com.parse.Parse
 import com.parse.ParseACL
 
-public class StartAppKotlin : Application() {
+class StartAppKotlin : Application() {
     override fun onCreate() {
         super.onCreate()
 
@@ -13,7 +13,7 @@ public class StartAppKotlin : Application() {
         Parse.initialize(Parse.Configuration.Builder(this)
                 .applicationId("f5f11f8268c9a944e7927a67983ebaeac2433dd0")
                 .clientKey("131fe7f87d4fff6c04bab6603c66346a191ac9cb")
-                .server("http://3.16.56.252:80/parse")
+                .server("http://18.217.57.179:80/parse")
                 .build()
         )
 
