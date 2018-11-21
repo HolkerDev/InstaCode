@@ -47,7 +47,7 @@ class MainActivityKt : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     fun logIn() {
-        ParseUser.logInInBackground(username.text.toString(), password.text.toString()) { user: ParseUser?, e: ParseException? ->
+        ParseUser.logInInBackground(et_username.text.toString(), et_password.text.toString()) { user: ParseUser?, e: ParseException? ->
             if (e == null) {
                 toast("Fine")
                 val i = Intent(this, HomeActivity::class.java)
@@ -60,8 +60,8 @@ class MainActivityKt : AppCompatActivity() {
 
     fun signUp() {
         val user: ParseUser = ParseUser()
-        user.username = username.text.toString()
-        user.setPassword(password.text.toString())
+        user.username = et_username.text.toString()
+        user.setPassword(et_password.text.toString())
         user.put("followers", 0)
         user.put("background", file)
         user.signUpInBackground {
@@ -83,7 +83,7 @@ class MainActivityKt : AppCompatActivity() {
         animation.setExitFadeDuration(3500)
         animation.start()
 
-        password.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent? ->
+        et_password.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent? ->
             run {
                 if (event != null) {
                     if (event.action == KeyEvent.ACTION_DOWN) {
@@ -102,23 +102,11 @@ class MainActivityKt : AppCompatActivity() {
             return@setOnKeyListener true
         }
 
-        //change type of logging
-        tv_switch.setOnClickListener {
-            if (mLoginMode) {
-                btn_center.text = getString(R.string.signUp)
-                mLoginMode = !mLoginMode
-                tv_switch.text = getString(R.string.orLogIn)
-            } else {
-                btn_center.text = getString(R.string.logIn)
-                mLoginMode = !mLoginMode
-                tv_switch.text = getString(R.string.orSignUp)
-            }
-        }
 
         //on click on the center button
-        btn_center.setOnClickListener {
+        btn_login.setOnClickListener {
             val animationS: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bounce)
-            btn_center.startAnimation(animationS)
+            btn_login.startAnimation(animationS)
             if (mLoginMode) {
                 logIn()
             } else {

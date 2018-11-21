@@ -1,74 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_anim"
-    tools:context=".MainActivity">
+    android:background="#2c3345"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_center"
-        android:layout_width="196dp"
-        android:layout_height="196dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="InstaCodeLogo"
-        android:onClick="hideKey"
-        app:srcCompat="@drawable/insta_code_logo" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:layout_alignStart="@+id/username"
-        android:layout_alignEnd="@+id/username"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_center"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/btn_center"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:layout_alignEnd="@+id/password"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="sans-serif"
-        android:text="Log In"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#000"
-        android:textSize="30dp" />
+    <ImageView android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/ic_camera_black_24dp"/>
 
     <TextView
-        android:id="@+id/tv_switch"
-        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:fontFamily="@font/q"
+        android:textColor="#969bd2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_center"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:text="Or, Sign Up"
-        android:textColor="#2010ff"
-        android:textColorHighlight="#1409f0"
-        android:textColorHint="#0f36f9" />
+        android:id="@+id/textView"/>
 
-</RelativeLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:inputType="textPersonName"
+        android:layout_margin="20dp"
+        android:background="@drawable/gaps"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:id="@+id/et_username"
+        android:hint="username"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:background="@drawable/gaps"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:id="@+id/et_password"
+        android:hint="password"/>
+    <Button
+        android:text="Sign in"
+        android:textSize="20sp"
+        android:fontFamily="@font/trueno_lt"
+        android:layout_width="250dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:id="@+id/btn_login"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_rounded_white"/>
+    <TextView
+        android:text=" Don't have a Wholesale Account? Sign up"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#11a0ff"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_signup"/>
+
+</LinearLayout>

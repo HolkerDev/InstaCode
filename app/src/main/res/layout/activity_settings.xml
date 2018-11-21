@@ -4,7 +4,6 @@
     android:id="@+id/rv_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_anim"
     tools:context=".activities.Settings">
 
     <Button
@@ -14,7 +13,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/btn_rounded_red"
         android:text="Log Out"
         android:textAllCaps="false"
         android:textColor="#ffffff"
@@ -28,7 +26,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
-        android:background="@drawable/rounded_btn"
         android:text="Update Background Image"
         android:textAllCaps="false" />
 </RelativeLayout>

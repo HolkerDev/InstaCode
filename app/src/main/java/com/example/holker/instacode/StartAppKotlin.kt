@@ -17,11 +17,9 @@ class StartAppKotlin : Application() {
                 .build()
         )
 
-        val parseACL: ParseACL = ParseACL()
+        val parseACL = ParseACL()
         parseACL.publicReadAccess = true
         parseACL.publicWriteAccess = true
         ParseACL.setDefaultACL(parseACL, true)
-
-
     }
 }

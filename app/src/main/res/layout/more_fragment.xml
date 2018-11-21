@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/rl_fragment_more"
-    android:background="@drawable/background_anim"
     android:layout_height="match_parent">
 
     <Button
@@ -12,7 +11,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/btn_rounded_red"
         android:text="Log Out"
         android:textAllCaps="false"
         android:textColor="#ffffff" />
@@ -24,7 +22,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
-        android:background="@drawable/rounded_btn"
         android:text="Update Background Image"
         android:textAllCaps="false" />
 
