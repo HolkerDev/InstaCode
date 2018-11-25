@@ -1,13 +1,9 @@
 # InstaCode
-Simple clone of Instagram.
+Sosial app for sharing photos.
 
 ## Screenshots
 * LoginScreen
-![alt text](https://github.com/HolkerDev/InstaCode/blob/master/LoginScreen.png)
-* List of users
-![alt text](https://github.com/HolkerDev/InstaCode/blob/master/UserList.png)
-* Feed
-![alt text](https://github.com/HolkerDev/InstaCode/blob/master/Feed.png)
+![alt text](https://github.com/HolkerDev/InstaCode/blob/master/Screenshot_1543177989.png)
 
 ## Built With
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
