@@ -56,7 +56,7 @@
         android:textAllCaps="false"
         android:background="@drawable/btn_rounded_white"/>
     <TextView
-        android:text=" Don't have a Wholesale Account? Sign up"
+        android:text=" Don't have a InstaCode Account? Sign up"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_marginTop="10dp"
