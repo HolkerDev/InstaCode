@@ -1,5 +1,5 @@
 # InstaCode
-Simple clone of Instagram.
+Sosial app for sharing photos.
 
 ## Screenshots
 * LoginScreen
